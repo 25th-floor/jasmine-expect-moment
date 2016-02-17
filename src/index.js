@@ -1,7 +1,7 @@
-const factory = require('jasmine-expect/src/lib/factory');
-const moment = require('moment');
+'use strict';
 
-moment.prototype.jasmineToString = moment.prototype.toString;
+require('./jasmine-to-string');
+const jasmineMatchers = require('jasmine-matchers-loader');
 
 const matchers = {
 	toBeMoment         : require('./to-be-moment'),
@@ -13,8 +13,5 @@ const matchers = {
 	toHaveMomentBefore : require('./to-have-moment-before'),
 };
 
-for (var matcherName in matchers) {
-	factory(matcherName, matchers[matcherName]);
-}
-
+jasmineMatchers.add(matchers);
 module.exports = matchers;
