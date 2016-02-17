@@ -1,3 +1,5 @@
+'use strict';
+
 const toBeObject = require('jasmine-expect/src/toBeObject');
 const toBeMomentBefore = require('./to-be-moment-before');
 
